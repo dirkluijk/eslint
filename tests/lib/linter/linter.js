@@ -11578,7 +11578,7 @@ describe("Linter with FlatConfigArray", () => {
                             assert.strictEqual(messages.length, 2);
                             assert.strictEqual(messages[0].ruleId, "test/my-rule");
                             assert.strictEqual(messages[0].severity, 2);
-                            assert.strictEqual(messages[0].message, "Inline configuration for rule \"test/my-rule\" is invalid:\n\tValue true should be string.\n");
+                            assert.strictEqual(messages[0].message, "Inline configuration for rule \"test/my-rule\" is invalid:\n\tValue true must be string.\n");
                             assert.strictEqual(messages[1].ruleId, "test/requires-option");
                             assert.strictEqual(messages[1].severity, 1);
                             assert.strictEqual(messages[1].message, "Don't use identifier");
@@ -11644,7 +11644,7 @@ describe("Linter with FlatConfigArray", () => {
                                 {
                                     severity: 2,
                                     ruleId: "no-alert",
-                                    message: "Inline configuration for rule \"no-alert\" is invalid:\n\tValue [{\"nonExistentPropertyName\":true}] should NOT have more than 0 items.\n",
+                                    message: "Inline configuration for rule \"no-alert\" is invalid:\n\tValue [{\"nonExistentPropertyName\":true}] must NOT have more than 0 items.\n",
                                     line: 1,
                                     column: 1,
                                     endLine: 1,

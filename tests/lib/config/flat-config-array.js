@@ -2334,7 +2334,7 @@ describe("FlatConfigArray", () => {
                             foo: [1, "bar"]
                         }
                     }
-                ], /Value "bar" should be equal to one of the allowed values/u);
+                ], /Value "bar" must be equal to one of the allowed values/u);
             });
 
             it("should error when rule options don't match schema requiring at least one item", async () => {
@@ -2345,7 +2345,7 @@ describe("FlatConfigArray", () => {
                             foo2: 1
                         }
                     }
-                ], /Value \[\] should NOT have fewer than 1 items/u);
+                ], /Value \[\] must NOT have fewer than 1 items/u);
             });
 
             [null, true, 0, 1, "", "always", () => {}].forEach(schema => {
@@ -2391,7 +2391,7 @@ describe("FlatConfigArray", () => {
                             "foo/bar": "error"
                         }
                     }
-                ], "Error while processing options validation schema of rule 'foo/bar': minItems must be number");
+                ], "Error while processing options validation schema of rule 'foo/bar': minItems value must be [\"number\"]");
             });
 
             it("should allow rules with `schema:false` to have any configurations", async () => {
@@ -2527,7 +2527,7 @@ describe("FlatConfigArray", () => {
                             "foo/bar": ["error", "always"]
                         }
                     }
-                ], /should NOT have more than 0 items/u);
+                ], /must NOT have more than 0 items/u);
             });
 
             it("should throw if a rule without `meta.schema` is configured with an option", async () => {
@@ -2551,7 +2551,7 @@ describe("FlatConfigArray", () => {
                             "foo/bar": ["error", "always"]
                         }
                     }
-                ], /should NOT have more than 0 items/u);
+                ], /must NOT have more than 0 items/u);
             });
 
             it("should merge two objects", () => assertMergedResult([
